@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'org.ucentralasia'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.2'
+    providedRuntime group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '3.1.0'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.2'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.2'
+    implementation "org.springframework.boot:spring-boot-starter-security"
+    implementation "org.springframework.security:spring-security-config"
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.modelmapper:modelmapper:2.1.1'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
